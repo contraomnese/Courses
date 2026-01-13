@@ -8,9 +8,7 @@
 # For customization when using a Version Control System, please read the
 # header note.
 
-
-FLICKR_API_KEY=
-FLICKR_SECRET=
-FLICKR_API_BASE_URL=https://www.flickr.com/services/
-FLICKR_API_UPLOAD_URL=https://up.flickr.com/
-FLICKR_API_CALLBACK=flickr-auth://oauth
+STORE_PASSWORD=
+KEY_PASSWORD=
+KEY_ALIAS=key0
+STORE_FILE=keystore
