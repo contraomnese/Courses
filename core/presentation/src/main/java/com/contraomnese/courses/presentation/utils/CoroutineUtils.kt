@@ -1,0 +1,25 @@
+package com.contraomnese.courses.presentation.utils
+
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.retryWhen
+import kotlinx.coroutines.launch
+
+fun <T> Flow<T>.retryIfError(): Flow<T> =
+    retryWhen { _, _ -> true }
+
+fun supervisorHandler(onError: (Throwable) -> Unit) =
+    CoroutineExceptionHandler { _, t -> onError(t) } + SupervisorJob() + Dispatchers.IO
+
+suspend fun supervisorLaunch(
+    onError: (Throwable) -> Unit,
+    block: suspend () -> Unit,
+    scope: CoroutineScope,
+) = scope.launch(
+    context = supervisorHandler(onError)
+) {
+    block()
+}

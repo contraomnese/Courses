@@ -1,0 +1,89 @@
+package com.contraomnese.courses.features.profile.presentation
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.contraomnese.courses.core.design.theme.CoursesTheme
+import com.contraomnese.courses.core.design.theme.padding24
+import com.contraomnese.courses.core.design.theme.padding40
+import com.contraomnese.courses.core.ui.DevicePreviews
+import com.contraomnese.courses.core.ui.widgets.BaseButton
+import com.contraomnese.courses.core.ui.widgets.LoadingIndicator
+import com.contraomnese.courses.ui.R
+import org.koin.androidx.compose.koinViewModel
+
+@Composable
+internal fun ProfileRoute(
+    modifier: Modifier = Modifier,
+    viewmodel: ProfileViewModel = koinViewModel(),
+    onNavigateToAuth: () -> Unit,
+) {
+
+    val uiState by viewmodel.uiState.collectAsStateWithLifecycle()
+
+    ProfileScreen(
+        modifier = modifier,
+        uiState = uiState,
+        onNavigateToAuth = onNavigateToAuth,
+        onClearData = viewmodel::onClearData
+    )
+}
+
+@Composable
+internal fun ProfileScreen(
+    modifier: Modifier = Modifier,
+    uiState: ProfileUiState,
+    onNavigateToAuth: () -> Unit,
+    onClearData: () -> Unit,
+) {
+
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background),
+        contentAlignment = Alignment.Center
+    ) {
+        when {
+            uiState.isLoading -> LoadingIndicator()
+            else -> Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = "Hello, ${uiState.username}",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onBackground
+                )
+            }
+        }
+        BaseButton(
+            title = stringResource(id = R.string.logout_title_button),
+            modifier = Modifier
+                .padding(bottom = padding40, start = padding24, end = padding24)
+                .align(Alignment.BottomCenter),
+            onClicked = {
+                onClearData()
+                onNavigateToAuth()
+            }
+        )
+    }
+}
+
+@DevicePreviews
+@Composable
+fun ProfileScreenPreview() {
+    CoursesTheme {
+        ProfileScreen(
+            uiState = ProfileUiState(username = "Sergey Belov"),
+            onNavigateToAuth = {},
+            onClearData = {}
+        )
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- exception messages -->
+    <string name="weather_for_location_not_found_domain_exception">Sorry! Weather by this location not found</string>
+    <string name="authorization_domain_exception">Sorry! The service is currently unavailable. Try again later.</string>
+    <string name="weather_api_domain_exception">Sorry! For reasons beyond our control, the service is unavailable. Try again later.</string>
+    <string name="wrong_request_domain_exception">Wrong data. Try again.</string>
+    <string name="unknown_domain_exception">Oops! Something went wrong..</string>
+    <string name="unforeseen_internal_exception">Wow! Unforeseen error.</string>
+    <string name="rate_limit_exception">Wow! Too many requests. Try again later.</string>
+    <string name="operation_failed">Unfortunately, the operation could not be completed.</string>
+    <string name="not_initialize">An unexpected error occurred while loading data. Please try again.</string>
+
+</resources>
