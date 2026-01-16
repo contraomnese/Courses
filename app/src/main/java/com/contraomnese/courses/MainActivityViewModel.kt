@@ -6,14 +6,16 @@ internal class MainActivityViewModel: MviModel<MainActivityAction, MainActivityE
     tag = "MainActivity",
     defaultState = MainActivityState.DEFAULT
 ) {
-    override suspend fun bootstrap() {
-    }
 
     override fun reducer(effect: MainActivityEffect, previousState: MainActivityState): MainActivityState = when (effect) {
         is MainActivityEffect.NotLoading -> previousState.copy(isLoading = false)
+        is MainActivityEffect.ChangeStartDestination -> previousState.setStartDestination(effect.destination)
     }
 
+
+
     override suspend fun actor(action: MainActivityAction) = when (action) {
-        is MainActivityAction.LottieAnimationFinished -> push(MainActivityEffect.NotLoading)
+        is MainActivityAction.AnimationFinished -> push(MainActivityEffect.NotLoading)
+        is MainActivityAction.NavigateTo -> push(MainActivityEffect.ChangeStartDestination(action.destination))
     }
 }

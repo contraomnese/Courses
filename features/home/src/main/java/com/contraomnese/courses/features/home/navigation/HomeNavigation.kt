@@ -28,12 +28,12 @@ fun NavController.navigateToHome(navOptions: NavOptions? = null) =
     navigate(HomeDestination, navOptions)
 
 interface HomeNavigator {
-    fun onNavigateToHome()
+    fun onNavigateToUp()
 }
 
 @OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.home(
-    navigateToHome: () -> Unit
+    externalNavigator: HomeNavigator
 ) {
     composable<HomeDestination> { backStackEntry ->
 

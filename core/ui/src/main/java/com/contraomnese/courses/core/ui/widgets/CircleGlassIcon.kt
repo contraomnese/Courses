@@ -42,8 +42,8 @@ fun CircleGlassIcon(
 
     val hazeStyle = HazeStyle(
         backgroundColor = Color.Black,
-        tints = listOf(HazeTint(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))),
-        blurRadius = 8.dp,
+        tints = listOf(HazeTint(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f))),
+        blurRadius = 4.dp,
         noiseFactor = 0.05f,
     )
 
@@ -114,7 +114,7 @@ private fun CircleIconPreview() {
                 modifier = Modifier
                     .size(itemWidth48),
                 description = "vocibus",
-                icon = R.drawable.favorite,
+                icon = R.drawable.favorite_outline,
                 isFilled = true,
                 hazeState = hazeState
             )

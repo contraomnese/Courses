@@ -61,10 +61,10 @@ import com.contraomnese.courses.ui.R as UI
 
 @Composable
 internal fun HomeRoute(
+    modifier: Modifier = Modifier,
     viewModel: HomeViewModel,
     eventFlow: Flow<HomeEvent>,
     pushAction: (HomeAction) -> Unit,
-    modifier: Modifier = Modifier,
 ) {
 
     val context = LocalContext.current

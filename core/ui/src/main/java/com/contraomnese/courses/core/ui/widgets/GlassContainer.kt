@@ -3,9 +3,7 @@ package com.contraomnese.courses.core.ui.widgets
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -43,8 +41,8 @@ fun GlassContainer(
     val hazeStyle = HazeStyle(
         backgroundColor = Color.Black,
         tints = listOf(HazeTint(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f))),
-        blurRadius = 8.dp,
-        noiseFactor = -1f,
+        blurRadius = 4.dp,
+        noiseFactor = 0.05f,
     )
 
     Box(

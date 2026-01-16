@@ -1,27 +1,27 @@
 package com.contraomnese.courses.navigation
 
 import androidx.navigation.NavHostController
-import com.contraomnese.courses.features.auth.navigation.AuthGraph
+import com.contraomnese.courses.features.auth.login.navigation.navigateToLogin
 import com.contraomnese.courses.features.auth.navigation.AuthNavigator
+import com.contraomnese.courses.features.auth.navigation.navigateToAuth
+import com.contraomnese.courses.features.auth.register.navigation.navigateToRegister
 import com.contraomnese.courses.features.bottom_menu.navigation.BottomMenuNavigator
-import com.contraomnese.courses.features.home.navigation.HomeNavigator
-
+import com.contraomnese.courses.features.bottom_menu.navigation.navigateToBottomMenu
 
 fun NavHostController.authNavigator(): AuthNavigator = object : AuthNavigator {
     override fun onNavigateToLogin() {
         popBackStack()
-        navigate(AuthGraph)
+        navigateToLogin()
     }
 
     override fun onNavigateToRegister() {
-        TODO("Not yet implemented")
+        popBackStack()
+        navigateToRegister()
     }
-}
-
-fun NavHostController.homeNavigator() = object : HomeNavigator {
 
     override fun onNavigateToHome() {
-        TODO("Not yet implemented")
+        popBackStack()
+        navigateToBottomMenu()
     }
 }
 
@@ -29,7 +29,7 @@ fun NavHostController.bottomMenuNavigator(): BottomMenuNavigator = object : Bott
 
     override fun onLogOut() {
         popBackStack()
-        navigate(AuthGraph)
+        navigateToAuth()
     }
 
     override fun onNavigateUp() {

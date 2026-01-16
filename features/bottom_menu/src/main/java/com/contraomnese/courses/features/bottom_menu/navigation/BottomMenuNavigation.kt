@@ -27,15 +27,20 @@ interface BottomMenuNavigator {
 
 fun NavGraphBuilder.bottomMenu(
     externalNavigator: BottomMenuNavigator,
+    onLogOut: () -> Unit
 ) {
     navigation<BottomMenuGraph>(startDestination = BottomMenuDestination) {
-        bottomMenuInner(externalNavigator = externalNavigator)
+        bottomMenuInner(
+            externalNavigator = externalNavigator,
+            onLogOut = onLogOut
+        )
     }
 }
 
 @OptIn(KoinExperimentalAPI::class)
 private fun NavGraphBuilder.bottomMenuInner(
     externalNavigator: BottomMenuNavigator,
+    onLogOut: () -> Unit
 ) {
 
     composable<BottomMenuDestination> { backStackEntry ->
@@ -48,7 +53,8 @@ private fun NavGraphBuilder.bottomMenuInner(
             externalNavigator = externalNavigator,
             viewModel = viewModel,
             eventFlow = viewModel.eventFlow,
-            pushAction = viewModel::push
+            pushAction = viewModel::push,
+            onLogOut = onLogOut
         )
 
     }

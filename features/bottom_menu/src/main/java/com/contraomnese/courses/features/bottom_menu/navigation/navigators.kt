@@ -1,25 +1,30 @@
 package com.contraomnese.courses.features.bottom_menu.navigation
 
-//fun NavHostController.interestsNavigator(externalNavigator: BottomMenuNavigator): InterestNavigator = object: InterestNavigator{
-//
-//    override fun navigateToDetails(initialPhotoPosition: Int, parentDestination: String) {
-//        externalNavigator.onNavigateToDetails(initialPhotoPosition, parentDestination)
-//    }
-//
-//    override fun onNavigateUp() {
-//        externalNavigator.onNavigateUp()
-//    }
-//
-//}
-//
-//fun NavHostController.searchNavigator(externalNavigator: BottomMenuNavigator): SearchNavigator = object: SearchNavigator{
-//
-//    override fun navigateToDetails(initialPhotoPosition: Int, parentDestination: String) {
-//        externalNavigator.onNavigateToDetails(initialPhotoPosition, parentDestination)
-//    }
-//
-//    override fun onNavigateUp() {
-//        externalNavigator.onNavigateUp()
-//    }
-//
-//}
+import androidx.navigation.NavHostController
+import com.contraomnese.courses.features.favorites.navigation.FavoritesNavigator
+import com.contraomnese.courses.features.home.navigation.HomeNavigator
+import com.contraomnese.courses.profile.navigation.ProfileNavigator
+
+fun NavHostController.accountNavigator(externalNavigator: BottomMenuNavigator): ProfileNavigator = object: ProfileNavigator{
+
+    override fun onNavigateToUp() {
+        externalNavigator.onNavigateUp()
+    }
+
+}
+
+fun NavHostController.favoritesNavigator(externalNavigator: BottomMenuNavigator): FavoritesNavigator = object: FavoritesNavigator{
+
+    override fun onNavigateToUp() {
+        externalNavigator.onNavigateUp()
+    }
+
+}
+
+fun NavHostController.homeNavigator(externalNavigator: BottomMenuNavigator): HomeNavigator = object: HomeNavigator{
+
+    override fun onNavigateToUp() {
+        externalNavigator.onNavigateUp()
+    }
+
+}

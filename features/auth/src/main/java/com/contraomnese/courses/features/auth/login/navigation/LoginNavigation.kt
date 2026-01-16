@@ -19,13 +19,10 @@ object LoginDestination: MviDestination
 fun NavController.navigateToLogin(navOptions: NavOptions? = null) =
     navigate(LoginDestination, navOptions)
 
-interface LoginNavigator {
-    fun onNavigateToLogin()
-}
-
 @OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.login(
-    navigateToRegister: () -> Unit
+    onNavigateToRegister: () -> Unit,
+    onNavigateToHome: () -> Unit
 ) {
     composable<LoginDestination> { backStackEntry ->
 
@@ -37,6 +34,8 @@ fun NavGraphBuilder.login(
             viewModel = viewModel,
             eventFlow = viewModel.eventFlow,
             pushAction = viewModel::push,
+            onNavigateToRegister = onNavigateToRegister,
+            onNavigateToHome = onNavigateToHome
         )
     }
 

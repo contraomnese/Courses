@@ -53,7 +53,8 @@ dependencies {
     implementation(project(":domain"))
 
     implementation(project(":features:home"))
-    implementation(project(":features:account"))
+    implementation(project(":features:profile"))
+    implementation(project(":features:favorites"))
 
     testImplementation(libs.bundles.test)
     testRuntimeOnly(libs.junit.jupiter.engine)

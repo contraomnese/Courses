@@ -19,7 +19,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.contraomnese.courses.account.navigation.account
 import com.contraomnese.courses.core.design.theme.itemWidth64
 import com.contraomnese.courses.core.navigation.navigateSingleTopTo
 import com.contraomnese.courses.core.ui.composition.LocalSnackbarHostState
@@ -27,10 +26,15 @@ import com.contraomnese.courses.core.ui.widgets.CoursesSnackBarHost
 import com.contraomnese.courses.core.ui.widgets.LoadingIndicator
 import com.contraomnese.courses.core.ui.widgets.NavBar
 import com.contraomnese.courses.features.bottom_menu.navigation.BottomMenuNavigator
+import com.contraomnese.courses.features.bottom_menu.navigation.accountNavigator
+import com.contraomnese.courses.features.bottom_menu.navigation.favoritesNavigator
+import com.contraomnese.courses.features.bottom_menu.navigation.homeNavigator
+import com.contraomnese.courses.features.favorites.navigation.favorites
 import com.contraomnese.courses.features.home.navigation.HomeDestination
 import com.contraomnese.courses.features.home.navigation.home
 import com.contraomnese.courses.presentation.architecture.collectEvent
 import com.contraomnese.courses.presentation.utils.handleError
+import com.contraomnese.courses.profile.navigation.profile
 import kotlinx.coroutines.flow.Flow
 
 @Composable
@@ -40,6 +44,7 @@ internal fun BottomMenuRoute(
     eventFlow: Flow<BottomMenuEvent>,
     pushAction: (BottomMenuAction) -> Unit,
     externalNavigator: BottomMenuNavigator,
+    onLogOut: () -> Unit
 ) {
 
     val navController: NavHostController = rememberNavController()
@@ -94,8 +99,12 @@ internal fun BottomMenuRoute(
                         navController = navController,
                         startDestination = HomeDestination
                     ) {
-                        home {  }
-                        account {  }
+                        home(navController.homeNavigator(externalNavigator))
+                        favorites(navController.favoritesNavigator(externalNavigator))
+                        profile(
+                            navController.accountNavigator(externalNavigator),
+                            onLogOut = onLogOut
+                        )
                     }
                 }
             }

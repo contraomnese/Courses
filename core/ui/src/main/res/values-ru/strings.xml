@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="back_arrow_content_description">Иконка стрелка назад</string>
-    <string name="open_map_description">Открыть карту с ближайшими коффейнями</string>
     <string name="register_title">Регистрация</string>
     <string name="register_nav_button">Зарегистрироваться</string>
+    <string name="enter">Войти</string>
     <string name="not_account">Нет аккаунта?</string>
+    <string name="has_account">Уже есть аккаунт?</string>
     <string name="login_title">Вход</string>
-    <string name="locations_title">Ближайшие коффейни</string>
-    <string name="map_title">Карта</string>
+    <string name="favorites_title">Избранное</string>
+    <string name="profile_title">Профиль</string>
+    <string name="courses_title">Ваши курсы</string>
+    <string name="support_title">Написать в поддержку</string>
+    <string name="settings_title">Настройки</string>
+    <string name="logout_title">Выйти из аккаунта</string>
     <string name="menu_title">Меню</string>
-    <string name="order_title">Ваш заказ</string>
     <string name="password_placeholder">Введите пароль</string>
     <string name="password_title">Пароль</string>
     <string name="confirm_password_title">Подтвердите пароль</string>
@@ -17,19 +21,50 @@
     <string name="forget_password">Забыл пароль</string>
     <string name="wrong_input_data">Проверьте данные указанные в полях</string>
     <string name="search">Поиск курсов...</string>
-    <string name="decrease_button">Увеличить количество</string>
-    <string name="increase_button">Уменьшите количество</string>
-    <string name="rub">Руб</string>
+    <string name="rub">₽</string>
     <string name="read_more">Подробнее</string>
     <string name="by_date_filter">По дате добавления</string>
     <string name="proceed_to_payment">Перейти к оплате</string>
-    <string name="pay">Оплатить</string>
-    <string name="on_map">На карте</string>
-    <string name="order_prepared">Время ожидания заказа 15 минут! Спасибо, что выбрали нас!</string>
-    <string name="distance">%.1f км от Вас</string>
+
     <string name="request_body_exception">Ошибка в теле запроса. Логин и пароль не могут быть пустыми.</string>
     <string name="user_not_authorized_exception">Пользователь не авторизован. Пожулайста, войдите.</string>
     <string name="user_not_exist_exception">Пользователя не существует. Пожулайста, зарегистрируйтесь.</string>
     <string name="login_already_used_exception">Данный логин уже используется</string>
     <string name="unknown_domain_exception">Ой! Что-то пошло не так..</string>
+
+
+    <string name="android_development">Android разработка</string>
+    <string name="ios_development">iOS разработка</string>
+    <string name="web_development">Веб-разработка</string>
+    <string name="frontend_development">Фронтенд-разработка</string>
+    <string name="backend_development">Бэкенд-разработка</string>
+    <string name="fullstack_development">Full Stack разработка</string>
+
+    <string name="data_analysis">Анализ данных</string>
+    <string name="data_science">Наука о данных</string>
+    <string name="machine_learning">Машинное обучение</string>
+    <string name="artificial_intelligence">Искусственный интеллект</string>
+    <string name="big_data">Большие данные</string>
+
+    <string name="devops">DevOps</string>
+    <string name="cloud_computing">Облачные технологии</string>
+    <string name="aws_fundamentals">Основы AWS</string>
+    <string name="docker_kubernetes">Docker и Kubernetes</string>
+
+    <string name="cybersecurity">Кибербезопасность</string>
+    <string name="ethical_hacking">Этичный хакинг</string>
+    <string name="software_testing">Тестирование ПО</string>
+    <string name="qa_automation">Автоматизация тестирования</string>
+
+    <string name="product_management">Продакт-менеджмент</string>
+    <string name="project_management">Проектный менеджмент</string>
+    <string name="ui_ux_design">UI/UX дизайн</string>
+    <string name="digital_marketing">Цифровой маркетинг</string>
+    <string name="it_business_analysis">Бизнес-анализ в IT</string>
+
+    <string name="blockchain_development">Блокчейн-разработка</string>
+    <string name="game_development">Разработка игр</string>
+    <string name="low_code">Low-code разработка</string>
+    <string name="mobile_security">Безопасность мобильных приложений</string>
+    <string name="software_architecture">Архитектура ПО</string>
 </resources>

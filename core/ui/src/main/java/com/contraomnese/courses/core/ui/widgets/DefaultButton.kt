@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.contraomnese.courses.core.design.theme.CoursesTheme
+import com.contraomnese.courses.core.design.theme.cornerRadius24
 import com.contraomnese.courses.core.design.theme.defaultButtonHeight
-import com.contraomnese.courses.core.design.theme.cornerSize24
 import com.contraomnese.courses.core.design.theme.padding12
 
 @Composable
@@ -39,7 +39,7 @@ fun DefaultButton(
             disabledContainerColor = containerColor.copy(alpha = 0.1f)
         ),
         enabled = enabled,
-        shape = RoundedCornerShape(cornerSize24)
+        shape = RoundedCornerShape(cornerRadius24)
     ) {
         Text(
             text = title,

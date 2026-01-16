@@ -2,15 +2,19 @@
 <resources>
     <string name="app_name" translatable="false">Courses</string>
     <string name="back_arrow_content_description">The arrow back icon</string>
-    <string name="open_map_description">Open map with near coffee shops</string>
     <string name="register_title">Register</string>
+    <string name="enter">Login</string>
     <string name="not_account">Not account?</string>
+    <string name="has_account">Has account?</string>
     <string name="login_title">Login</string>
-    <string name="locations_title">Nearest coffee shops</string>
-    <string name="map_title">Map</string>
+    <string name="favorites_title">Favorites</string>
+    <string name="profile_title">Profile</string>
+    <string name="courses_title">My courses</string>
+    <string name="support_title">Write to support</string>
+    <string name="settings_title">Settings</string>
+    <string name="logout_title">Logout</string>
     <string name="menu_title">Menu</string>
     <string name="email_title" translatable="false">E-mail</string>
-    <string name="order_title">Your order</string>
     <string name="password_placeholder">Enter password</string>
     <string name="password_title">Password</string>
     <string name="confirm_password_title">Confirm password</string>
@@ -18,16 +22,11 @@
     <string name="wrong_input_data">Сheck the data specified in the fields</string>
     <string name="register_nav_button">Register</string>
     <string name="search">Search courses...</string>
-    <string name="decrease_button">Decrease amount</string>
-    <string name="increase_button">Increase amount</string>
     <string name="rub">₽</string>
     <string name="read_more">More</string>
     <string name="by_date_filter">By date added</string>
     <string name="proceed_to_payment">Proceed to payment</string>
-    <string name="pay">Pay</string>
-    <string name="on_map">Show map</string>
-    <string name="order_prepared">Waiting time for your order is 15 minutes! Thank you for choosing us!</string>
-    <string name="distance">%.1f km from You</string>
+
 
     <string name="request_body_exception">Request body error. Login and password can\'t be empty</string>
     <string name="user_not_authorized_exception">User not authorized. Please, login.</string>
@@ -35,4 +34,35 @@
     <string name="login_already_used_exception">This login already used</string>
     <string name="unknown_domain_exception">Ooops! Something went wrong..</string>
     <string name="forget_password">Forget password</string>
+
+    <!--    board courses mocks-->
+    <string name="android_development">Android development</string>
+    <string name="ios_development">iOS development</string>
+    <string name="web_development">Web development</string>
+    <string name="frontend_development">Frontend development</string>
+    <string name="backend_development">Backend development</string>
+    <string name="fullstack_development">Full Stack development</string>
+    <string name="data_analysis">Data analysis</string>
+    <string name="data_science">Data science</string>
+    <string name="machine_learning">Machine learning</string>
+    <string name="artificial_intelligence">Artificial intelligence</string>
+    <string name="big_data">Big data</string>
+    <string name="devops">DevOps</string>
+    <string name="cloud_computing">Cloud computing</string>
+    <string name="aws_fundamentals">AWS fundamentals</string>
+    <string name="docker_kubernetes">Docker and Kubernetes</string>
+    <string name="cybersecurity">Cybersecurity</string>
+    <string name="ethical_hacking">Ethical hacking</string>
+    <string name="software_testing">Software testing</string>
+    <string name="qa_automation">QA automation</string>
+    <string name="product_management">Product management</string>
+    <string name="project_management">Project management</string>
+    <string name="ui_ux_design">UI/UX design</string>
+    <string name="digital_marketing">Digital marketing</string>
+    <string name="it_business_analysis">IT business analysis</string>
+    <string name="blockchain_development">Blockchain development</string>
+    <string name="game_development">Game development</string>
+    <string name="low_code">Low-code development</string>
+    <string name="mobile_security">Mobile security</string>
+    <string name="software_architecture">Software architecture</string>
 </resources>

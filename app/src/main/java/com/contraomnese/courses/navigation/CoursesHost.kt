@@ -17,11 +17,14 @@ import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.contraomnese.courses.MainActivityAction
 import com.contraomnese.courses.MainActivityEvent
 import com.contraomnese.courses.core.ui.composition.LocalCoursesBackgrounds
 import com.contraomnese.courses.core.ui.composition.LocalSnackbarHostState
 import com.contraomnese.courses.core.ui.composition.coursesBackgrounds
+import com.contraomnese.courses.features.auth.navigation.AuthGraph
 import com.contraomnese.courses.features.auth.navigation.authentication
+import com.contraomnese.courses.features.bottom_menu.navigation.BottomMenuGraph
 import com.contraomnese.courses.features.bottom_menu.navigation.bottomMenu
 import com.contraomnese.courses.presentation.architecture.MviDestination
 import com.contraomnese.courses.presentation.architecture.collectEvent
@@ -33,6 +36,7 @@ internal fun CoursesHost(
     navController: NavHostController = rememberNavController(),
     eventFlow: Flow<MainActivityEvent>,
     startDestination: MviDestination,
+    pushAction: (MainActivityAction) -> Unit
 ) {
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
@@ -96,8 +100,14 @@ internal fun CoursesHost(
                     )
                 }
             ) {
-                authentication(externalNavigator = navController.authNavigator())
-                bottomMenu(externalNavigator = navController.bottomMenuNavigator())
+                authentication(
+                    externalNavigator = navController.authNavigator(),
+                    onNavigateToHome = { pushAction(MainActivityAction.NavigateTo(BottomMenuGraph)) }
+                )
+                bottomMenu(
+                    externalNavigator = navController.bottomMenuNavigator(),
+                    onLogOut = { pushAction(MainActivityAction.NavigateTo(AuthGraph)) }
+                )
 //                home(navigateToHome = { })
             }
         }

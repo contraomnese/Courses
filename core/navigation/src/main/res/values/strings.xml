@@ -3,5 +3,5 @@
     <!--    Bottom menu-->
     <string name="home">Home</string>
     <string name="favorites">Favorites</string>
-    <string name="account">Account</string>
+    <string name="profile">Profile</string>
 </resources>

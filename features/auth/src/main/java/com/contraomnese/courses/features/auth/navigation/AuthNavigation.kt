@@ -12,7 +12,7 @@ import com.contraomnese.courses.presentation.architecture.MviDestination
 import kotlinx.serialization.Serializable
 
 @Serializable
-object AuthGraph: MviDestination
+object AuthGraph : MviDestination
 
 fun NavController.navigateToAuth(navOptions: NavOptions? = null) =
     navigate(AuthGraph, navOptions)
@@ -20,14 +20,22 @@ fun NavController.navigateToAuth(navOptions: NavOptions? = null) =
 interface AuthNavigator {
     fun onNavigateToLogin()
     fun onNavigateToRegister()
+    fun onNavigateToHome()
 }
 
 fun NavGraphBuilder.authentication(
-    externalNavigator: AuthNavigator
+    externalNavigator: AuthNavigator,
+    onNavigateToHome: () -> Unit
 ) {
     navigation<AuthGraph>(startDestination = LoginDestination) {
-        login(externalNavigator::onNavigateToRegister)
-        register(externalNavigator::onNavigateToLogin)
+        login(
+            onNavigateToRegister = externalNavigator::onNavigateToRegister,
+            onNavigateToHome = onNavigateToHome
+        )
+        register(
+            onNavigateToLogin = externalNavigator::onNavigateToLogin,
+            onNavigateToHome = onNavigateToHome
+        )
     }
 
 }
