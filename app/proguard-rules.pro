@@ -27,6 +27,8 @@
 -keep class com.contraomnese.courses.presentation.architecture.** { *; }
 -keep class com.contraomnese.courses.presentation.utils.** { *; }
 
+-keep class com.contraomnese.courses.core.navigation.** { *; }
+
 -keep class com.contraomnese.courses.core.ui.composition.** { *; }
 -keep class com.contraomnese.courses.core.ui.widgets.** { *; }
 -keep class com.contraomnese.courses.core.ui.utils.** { *; }
@@ -49,3 +51,4 @@
 -keep class com.contraomnese.courses.MainActivityState { *; }
 -keep class com.contraomnese.courses.MainActivityViewModel { *; }
 
+-keep class com.contraomnese.courses.features.bottom_menu.navigation.** { *; }

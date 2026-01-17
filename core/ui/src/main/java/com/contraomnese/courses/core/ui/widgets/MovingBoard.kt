@@ -78,14 +78,26 @@ private fun MovingBoardRow(
     var rowWidth by remember { mutableFloatStateOf(0f) }
 
     val transition = rememberInfiniteTransition(label = "board_row")
-    val targetOffset = if (rowWidth > 0) rowWidth else screenWidthPx / 2
+
+    val startOffset = when {
+        rowWidth == 0f -> 0f
+        direction == Direction.Left -> 0f
+        else -> screenWidthPx - rowWidth
+    }
+
+    val endOffset = when {
+        rowWidth == 0f -> 0f
+        direction == Direction.Left -> -rowWidth
+        else -> screenWidthPx
+    }
+
 
     val offsetX by transition.animateFloat(
-        initialValue = if (direction == Direction.Left) 0f else -targetOffset,
-        targetValue = if (direction == Direction.Left) -targetOffset else 0f,
+        initialValue = startOffset,
+        targetValue = endOffset,
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = (20_000 / speedMultiplier).toInt(),
+                durationMillis = (30_000 / speedMultiplier).toInt(),
                 easing = LinearEasing
             ),
             repeatMode = RepeatMode.Restart
