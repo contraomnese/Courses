@@ -5,8 +5,6 @@
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
--printusage usage.txt
-
 -keep class kotlinx.coroutines.** { *; }
 -keep class kotlin.coroutines.Continuation { *; }
 
